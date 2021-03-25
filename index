@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<title>Open Data Innovation CW1</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script type="text/javascript" src="/Users/sarah/Documents/MSc Data Science/Semester 2/Open Data/Courseworks/CW1/CW1/cmdLineSparkling/utils.js"></script>
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("co19.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+canvas {
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+  }
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+<!--       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user"></i> TEAM</a>
+ -->      <a href="#RDF_File" class="w3-bar-item w3-button"><i class="fa fa-th"></i> RDF File</a>
+      <a href="#charts" class="w3-bar-item w3-button"><i class="fa fa-picture-o"></i> VISUALISATION</a> 
+
+      <a href = "mailto: sama2d19@soton.ac.uk"class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+<!--   <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+ -->  <a href="#RDF_File" onclick="w3_close()" class="w3-bar-item w3-button">RDF File</a>
+  <a href="#charts" onclick="w3_close()" class="w3-bar-item w3-button">VISUALISATION</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-indigo" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small">Business Impacts of COVID-19 Data​​​​ </span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">Business Impacts of COVID-19 Data​​​​ </span><br>
+    <span class="w3-large">COMP6214: 
+Open Data Innovation Coursework #1 <br>By: Sarah Alharbi </span>
+    <p><a href="#charts" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Visualisation</a></p>
+  </div> 
+  <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large">Key features of our company</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Responsive</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Passion</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Design</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Support</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section - "We know design" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Modeling Data.</h3>
+      <p>Please press here to download the Schema and the turtle file<br></p>
+      <p><a href="/Users/sarah/Documents/MSc Data Science/Semester 2/Open Data/Courseworks/CW1/CW1/cmdLineSparkling/BICSData_sheet2.ttl" target="_blank" class="w3-button w3-black"><i class="fa fa-th"> </i> Schema File</a></p>
+      
+      <p><a href="/Users/sarah/Documents/MSc Data Science/Semester 2/Open Data/Courseworks/CW1/CW1/cmdLineSparkling/BICSData_sheet2.ttl" target="_blank" class="w3-button w3-black"><i class="fa fa-th"> </i> Turtle File  </a></p>
+
+
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="/w3images/phone_buildings.jpg" alt="Buildings" width="700" height="394">
+    </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:128px 16px" id="team">
+  <h3 class="w3-center">THE TEAM</h3>
+  <p class="w3-center w3-large">The ones who runs this company</p>
+  <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/w3images/team2.jpg" alt="John" style="width:100%">
+        <div class="w3-container">
+          <h3>John Doe</h3>
+          <p class="w3-opacity">CEO & Founder</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+        <div class="w3-container">
+          <h3>Anja Doe</h3>
+          <p class="w3-opacity">Art Director</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/w3images/team3.jpg" alt="Mike" style="width:100%">
+        <div class="w3-container">
+          <h3>Mike Ross</h3>
+          <p class="w3-opacity">Web Designer</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="/w3images/team4.jpg" alt="Dan" style="width:100%">
+        <div class="w3-container">
+          <h3>Dan Star</h3>
+          <p class="w3-opacity">Designer</p>
+          <p>Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Promo Section "Statistics" -->
+<div class="w3-container w3-row w3-center w3-dark-grey w3-padding-64">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">14+</span>
+    <br>Partners
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">55+</span>
+    <br>Projects Done
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">89+</span>
+    <br>Happy Clients
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">150+</span>
+    <br>Meetings
+  </div>
+</div>
+
+<!-- Work Section -->
+<div class="w3-container" style="padding:128px 16px" id="charts">
+  <h3 class="w3-center">VISUALISATION</h3>
+  <p class="w3-center w3-large">What we've done for people</p>
+
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l12 m12">
+      <div >
+        <h4 class="w3-center">Sample for the BICS survey broken down by industry</h4><br>
+
+    <canvas id="canvas"></canvas>
+  </div>
+    </div>
+  </div>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l12 m12">
+      <div >
+        <h4 class="w3-center">Trading Status </h4>
+        <p class="w3-center">The accommodation and food services sector reported the largest percentages of businesses temporarily closing or pausing trading</p>
+    <canvas id="canvas2"></canvas>
+  </div>
+    </div>
+  </div>
+    <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l12 m12">
+      <div >
+        <h4 class="w3-center">Sample for the BICS survey broken down by industry</h4><br>
+
+    <canvas id="canvas3"></canvas>
+  </div>
+    </div>
+  </div>
+
+      <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-col l12 m12">
+      <div >
+        <h5 class="w3-center">Percentage of businesses either continuing to trade or who have temporarily paused or ceased trading</h5>
+        <p class="w3-center">, Broken down by country, UK, 6 April to 19 April 2020</p>
+        <br>
+
+    <canvas id="canvas4"></canvas>
+  </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+  var barChartData = {
+      labels: ['Mining And Quarrying',
+          'Manufacturing',
+          'Water Supply, Sewerage, Waste Management And Remediation Activities',
+          'Construction',
+          'Wholesale And Retail Trade; Repair Of Motor Vehicles And Motorcycles',
+          'Accommodation And Food Service Activities',
+          'Transportation And Storage',
+          'Information And Communication',
+          'Real Estate Activities',
+          'Professional, Scientific And Technical Activities',
+          'Administrative And Support Service Activities',
+          'Education',
+          'Human Health And Social Work Activities',
+          'Arts, Entertainment And Recreation',
+          'Other Service Activities'],
+      datasets: [{
+        label:'Workforce Size less than 250',
+        backgroundColor: window.chartColors.red,
+        data:[15,1785,130,722,1819,975,528,794,112,1303,1287,303,145,415,108]}, 
+        {
+        label: 'Workforce Size 250 or more',
+        backgroundColor: window.chartColors.blue,
+
+        data: [13,1370,71,312,1180,659,335,422,88,720,1072,457,149,303,29]},
+        {
+        label: 'Total',
+        backgroundColor: window.chartColors.green,
+        data: [28,3155,201,1034,2999,1634,863,1216,200,2023,2359,760,294,718,137]}]
+        };
+    
+        var ctx = document.getElementById('canvas').getContext('2d');
+        var chart1= new Chart(ctx, {
+          type: 'horizontalBar',
+          data: barChartData,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: 'Chart.js Bar Chart - Stacked'
+              },
+              tooltip: {
+                mode: 'index',
+                intersect: false
+              },
+            },
+            responsive: true,
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true
+              }
+            }
+          }
+        });
+    
+
+
+// ----------------------------Second Bar Chart------------------
+
+var barChartData2 = {
+      labels: [
+          'Manufacturing',
+          'Water Supply, Sewerage, Waste Management And Remediation Activities',
+          'Construction',
+          'Wholesale And Retail Trade; Repair Of Motor Vehicles And Motorcycles',
+          'Accommodation And Food Service Activities',
+          'Transportation And Storage',
+          'Information And Communication',
+          'Professional, Scientific And Technical Activities',
+          'Administrative And Support Service Activities',
+          'Education',
+          'Human Health And Social Work Activities',
+          'Arts, Entertainment And Recreation',
+          'All Industries'],
+      datasets: [{
+        label: 'Continuing to trade',
+        backgroundColor: window.chartColors.red,
+        data: [79, 90,73,75,18, 92, 95,97, 92, 87, 94,21, 77
+        ]
+      }, {
+        label: 'Permanently ceased trading',
+        backgroundColor: window.chartColors.blue,
+        data: [
+          0,0,1,1,1,0,1,0,0,1,1,0, 1 ]}, {
+        label: 'Temporarily closed or paused trading',
+        backgroundColor: window.chartColors.green,
+        data: [21,10,26, 24, 81, 9, 5,3,8,13, 5,80, 23
+
+        ]
+      }]
+
+    };
+  
+      var ctx_2 = document.getElementById('canvas2').getContext('2d');
+      var chart_2 = new Chart(ctx_2, {
+        type: 'horizontalBar',
+        data: barChartData2,
+        options: {
+          title: {
+            display: true,
+            text: 'Chart.js Bar Chart - Stacked'
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          },
+          responsive: true,
+          scales: {
+            xAxes: [{
+              stacked: true,
+            }],
+            yAxes: [{
+              stacked: true
+            }]
+          }
+        }
+      });
+        
+// ----------------------------End Second Bar Chart------------------
+// ----------------------------Radar Chart------------------
+  
+    var Radardata = {
+      labels: ['Continuing to trade ', 'Permanently ceased trading', 'Temporarily closed or paused trading'],
+      // datasets: [{
+      //   data: generateData()
+      // }]
+
+        datasets: [{
+        label: 'England',
+        backgroundColor: window.chartColors.red,
+        data: [ 78 ,   0,    22 ]
+      }, {
+        label: 'Wales',
+        backgroundColor: window.chartColors.blue,
+        data: [ 76 ,   1   ,23  ]}, 
+        {
+        label: 'Scotland',
+        backgroundColor: window.chartColors.green,
+        data: [78 , 1,    22 ]
+      },{
+        label: 'Northern Ireland',
+        backgroundColor: window.chartColors.purple,
+        data: [73 , 0,    27 ]
+      },{
+        label: 'The UK',
+        backgroundColor: window.chartColors.orange,
+        data: [77 , 0.5,    22.8 ]
+      }]
+    };
+
+      var ctx_3 = document.getElementById('canvas3').getContext('2d');
+
+var radarChart = new Chart(ctx_3, {
+    type: 'radar',
+    data: Radardata,
+});
+// ----------------------------End Radar Chart------------------
+
+  var Radardata1 = {
+      labels: ['Job Retention Scheme ', 'Business rates holiday', 'Deferring VAT payments', ' HMRC Time To Pay scheme', 'Government-funded small ', 'Accredited finance agreements', 'have not applied'],
+      // datasets: [{,
+      //   data: generateData()
+      // }]
+
+        datasets: [{
+        label: 'England',
+        backgroundColor: window.chartColors.red,
+        data: [ 67, 27, 57, 22, 11, 10, 21]
+      }, {
+        label: 'Wales',
+        backgroundColor: window.chartColors.blue,
+        data: [ 74, 39, 65, 26, 14, 13, 13 ]}, 
+        {
+        label: 'Scotland',
+        backgroundColor: window.chartColors.green,
+        data: [72, 29, 63, 24, 8,  10, 17]
+      },{
+        label: 'Northern Ireland',
+        backgroundColor: window.chartColors.purple,
+        data: [65, 30, 40, 13, 11, 7,  24]
+      },{
+        label: 'The UK',
+        backgroundColor: window.chartColors.orange,
+        data: [67, 27, 56, 22, 11, 10, 21 ]
+      }]
+    };
+
+      var ctx_4 = document.getElementById('canvas4').getContext('2d');
+
+var radarChart1 = new Chart(ctx_4, {
+    type: 'radar',
+    data: Radardata1,
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+  
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>Our Skills.</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
+      tempor incididunt ut labore et dolore.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
+      tempor incididunt ut labore et dolore.</p>
+    </div>
+    <div class="w3-col m6">
+      <p class="w3-wide"><i class="fa fa-camera w3-margin-right"></i>Photography</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:90%">90%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-desktop w3-margin-right"></i>Web Design</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-photo w3-margin-right"></i>Photoshop</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:75%">75%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+ 
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
